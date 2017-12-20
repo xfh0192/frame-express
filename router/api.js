@@ -10,7 +10,10 @@ router.use(function timeLog (req, res, next) {
 // 定义路由
 router.get('/', function (req, res) {
     console.log('this is api');
-    res.send('this is api');
+    let data = {
+        message: 'this is api'
+    }
+    res.send(data);
 });
 
 router.get('/hi', function (req, res) {
