@@ -9,16 +9,23 @@ let User = sequelize.define('user', {
     // lastName: {
     //     type: Sequelize.STRING
     // }
+
+    // 自动增长的主键应该使用整型....
     id: {
-        type: Sequelize.STRING(50),
-        primaryKey: true
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
     name: Sequelize.STRING(100),
-    gender: Sequelize.BOOLEAN,
-    birth: Sequelize.STRING(10),
-    createdAt: Sequelize.BIGINT,
-    updatedAt: Sequelize.BIGINT,
-    version: Sequelize.BIGINT
+    createdAt: Sequelize.STRING,
+
+    // gender: Sequelize.BOOLEAN,
+    // birth: Sequelize.STRING(10),
+    // createdAt: Sequelize.BIGINT,
+    // updatedAt: Sequelize.BIGINT,
+    // version: Sequelize.BIGINT
 }, {
     timestamps: false
 });
+
+module.exports = User
