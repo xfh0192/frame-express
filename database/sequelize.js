@@ -10,7 +10,17 @@ let sequelize = new Sequelize(config.database, config.username, config.password,
         max: 5,
         min: 0,
         idle: 30000
+    },
+    define: {
+        timestamps: false
     }
+})
+
+sequelize
+.sync()
+// .sync({force: true})
+.then(function () {
+    console.log('sync done')
 })
 
 module.exports = sequelize;
