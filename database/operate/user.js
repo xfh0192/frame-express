@@ -21,8 +21,15 @@ let setUser = function (data) {
     // http://www.nodeclass.com/api/sequelize.html
     // return User.sync()
     //         .then(function () {
-            let now = Date.now()
-            return User.create({
+            
+            // 校验,避免数据库抛出错误
+            return new Promise(function (resolve, reject) {
+                resolve()
+            })
+            // 插入数据
+            .then(function () {
+                let now = Date.now()
+                let model = {
                     // id: data.id,
                     name: data.name,
                     createdAt: now,
@@ -34,8 +41,9 @@ let setUser = function (data) {
                     // createdAt: now,
                     // updatedAt: now,
                     // version: 0
-                })
-            // })
+                }
+                return User.create(model);
+            })
             .then(function (p) {
                 console.log('created.' + JSON.stringify(p))
                 // 这里返回的是新增的数据
@@ -45,6 +53,7 @@ let setUser = function (data) {
             })
             .catch(function (err) {
                 console.log('failed: ' + err)
+                return err;
             })
 
             // 马克！！

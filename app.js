@@ -27,6 +27,10 @@ app.use('/post', require('./router/post'))
 
 app.use('/sql', require('./router/getSql'))
 
+// 同步model与数据库表
+const sequelize = require('./database/sequelize')
+sequelize.sync({alter: true})
+
 var server = app.listen(3000, function () {
     var host = server.address().address;
     var port = server.address().port;

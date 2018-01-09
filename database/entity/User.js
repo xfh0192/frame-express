@@ -10,10 +10,17 @@ let User = sequelize.define('user', {
             autoIncrement: true
         },
         name: Sequelize.STRING(100),
-        account: Sequelize.STRING,
-        password: Sequelize.STRING,
+        account: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        password: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
         createdAt: Sequelize.STRING,
-        
+
         test: Sequelize.STRING,
     }, {
         tableName: 'users',
