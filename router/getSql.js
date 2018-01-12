@@ -1,7 +1,14 @@
+
+/**
+ * 该处是用于测试单表的操作
+ * 情景：账号注册/登录
+ */
+
 const express = require('express')
 const router = express.Router()
 const user = require('../database/operate/user')
 
+// 注册一个账号
 router.post('/user/set', async (req, res) => {
     let data = req.body
     let users = await user.setUser(data)
@@ -9,6 +16,7 @@ router.post('/user/set', async (req, res) => {
     res.send(users)
 })
 
+// 获取所有账号
 router.get('/user/get', async (req, res) => {
     console.log('getUsers')
     let users = await user.getUsers()
@@ -16,6 +24,7 @@ router.get('/user/get', async (req, res) => {
     res.json(users)
 })
 
+// 注册（插入）一个账号数据进表
 router.post('/user/login', async (req, res) => {
     console.log('check login')
     let users = await user.loginUser(req.body)
