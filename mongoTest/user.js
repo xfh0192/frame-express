@@ -11,10 +11,10 @@ const Schema = mongoose.Schema
 
 // 定义一个Schema
 const UserSchema = new Schema({
-    username: {type: String},
+    username: {type: String, index: true},          // index: 建索引
     userpwd: {type: String},
     userage: {type: Number},
-    logindate: {type: Date},    // 最近登录时间
+    logindate: {type: Date, default: Date.now},    // 最近登录时间。default: 默认值
 })
 
 /**
