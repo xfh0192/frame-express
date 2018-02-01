@@ -13,5 +13,7 @@ router.get('/save', async (req, res) => {
     let fileName = req.body && req.body.fileName || 'default'
     let content = req.body && req.body.body || ''
 
-    fs.open(fileName)
+    // fs.open(fileName)
 })
+
+module.exports = router;

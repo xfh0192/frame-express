@@ -34,6 +34,7 @@ app.use('/post', require('./router/post'))
 // const sequelize = require('./database/sequelize')
 // sequelize.sync({alter: true})
 
+
 var server = app.listen(3000, function () {
     var host = server.address().address;
     var port = server.address().port;
