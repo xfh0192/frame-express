@@ -27,7 +27,7 @@ app.use('/post', require('./router/post'))
 
 // app.use('/sql', require('./router/getSql'))
 
-// app.use('/fs', require('./router/fs'))
+app.use('/fs', require('./router/fs'))
 
 // 改用mongoose
 // 同步model与数据库表
